@@ -15,3 +15,4 @@ services:
     image: 'bitnami/php-fpm:latest'
     volumes:
       - "./services/app:/app"
+    env_file: '.env'
