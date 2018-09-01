@@ -1,14 +1,17 @@
-version: '3.3'
+version: '3'
 
 services:
-  app:
+  nginx:
     build:
-      context: services/app
-      dockerfile: Dockerfile.development
-    command: sh -c "echo 'It is Lumen, baby!'"
+      context: services/nginx
+      dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8080:8080"
     volumes:
-      - "~/.bash_history:/.bash_history"
-      - "./services/app:/usr/src/app:cached"
-      - "/tmp:/tmp:delegated"
+      - "./services/nginx/devops.lovata.tech.conf:/bitnami/nginx/conf/vhosts/devops.lovata.tech.conf"
+    depends_on:
+      - app
+  app:
+    image: 'bitnami/php-fpm:latest'
+    volumes:
+      - "./services/app:/app"
