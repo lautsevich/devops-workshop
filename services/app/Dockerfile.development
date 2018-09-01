@@ -1,3 +1,5 @@
-php:latest
+# Dockerfile
+
+FROM php:latest
 ENV PROJECT_ROOT /usr/src/app
 WORKDIR $PROJECT_ROOT
