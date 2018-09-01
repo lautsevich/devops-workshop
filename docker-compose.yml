@@ -5,7 +5,7 @@ services:
     build:
       context: services/app
       dockerfile: Dockerfile.development
-    command: sh -c "echo 'It is Lumen, baby!"
+    command: sh -c "echo 'It is Lumen, baby!'"
     ports:
       - "8080:80"
     volumes:
