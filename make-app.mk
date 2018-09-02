@@ -9,6 +9,5 @@ app-build:
 app-bash:
 	docker-compose run --user=$(USER) app bash
 
-app-setup:
-	development-setup-env app-build
+app-setup: development-setup-env app-build
 	docker-compose run app composer install
